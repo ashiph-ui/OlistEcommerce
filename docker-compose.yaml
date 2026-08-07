@@ -1,0 +1,20 @@
+services:
+  postgres:
+    container_name: olist-postgres
+    image: postgres:16 # Exact version
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PW}
+      - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
+    ports:
+      - "5432:5432"
+
+    volumes:
+      # Named volume: data survives `docker compose down` / container restarts.
+      - olist_pgdata:/var/lib/postgresql/data
+
+      # Anything in db/init runs once, automatically, the FIRST time the
+      # container starts with an empty data volume (creates our schemas).
+      - ./db/init:/docker-entrypoint-initdb.d
+      
+    restart: unless-stopped
