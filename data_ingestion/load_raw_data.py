@@ -49,16 +49,19 @@ def get_data_dict():
 def write_to_db():
     engine = get_connection()
     data_dict = get_data_dict()
-
+    successful_reads = 0
     for table_name, df in data_dict.items():
-        print(f"Writing {table_name} ({len(df):,} rows)...")
-        df.to_sql(name=table_name,
-                  con=engine,
-                  schema="raw",
-                  index=False,
-                  if_exists="append")
-        print(f"  {table_name} done.")
-
+        try:
+            print(f"Writing {table_name} ({len(df):,} rows)...")
+            df.to_sql(name=table_name,
+                    con=engine,
+                    schema="raw",
+                    index=False,
+                    if_exists="delete_rows")
+            successful_reads += 1
+        except Exception as e:
+            print(f"Error Writing {table_name} to sql. Error: {e}\n")
+    print(f"{successful_reads}/{len(data_dict)} files read successfully")
 
 if __name__ == "__main__":
     write_to_db()
