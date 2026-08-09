@@ -1,7 +1,7 @@
 import os
 from sqlalchemy import create_engine
 import pandas as pd
-from load_config import DTYPE_CONFIG
+from load_config import TABLE_CONFIG
 from dotenv import load_dotenv
 
 ROOT_PATH = os.path.dirname(os.path.dirname(__file__))
@@ -27,12 +27,18 @@ def get_connection():
     return engine
 
 def read_csv(file_name):
-    df = pd.read_csv(os.path.join(RAW_DATA_PATH, file_name), dtype=DTYPE_CONFIG)
+    table_name = file_name.split('.')[0]
+    config = TABLE_CONFIG.get(table_name, {})
+    df = pd.read_csv(
+        os.path.join(RAW_DATA_PATH, file_name),
+        dtype=config.get("dtype", {}),
+        parse_dates=config.get("parse_dates", []),
+    )
     print(f"{file_name} read.")
     return df
 
 def get_data_dict():
-    table_names = [raw_data_list[i].split('.')[0].upper() for i in range(0, len(raw_data_list))]
+    table_names = [raw_data_list[i].split('.')[0] for i in range(0, len(raw_data_list))]
     data_dict = {}
 
     for i in range(0, len(raw_data_list)):
@@ -40,6 +46,7 @@ def get_data_dict():
 
     return data_dict
 
+# def write_to_db():
 
 if __name__ == "__main__":
     get_data_dict()
