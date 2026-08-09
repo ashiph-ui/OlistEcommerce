@@ -46,7 +46,19 @@ def get_data_dict():
 
     return data_dict
 
-# def write_to_db():
+def write_to_db():
+    engine = get_connection()
+    data_dict = get_data_dict()
+
+    for table_name, df in data_dict.items():
+        print(f"Writing {table_name} ({len(df):,} rows)...")
+        df.to_sql(name=table_name,
+                  con=engine,
+                  schema="raw",
+                  index=False,
+                  if_exists="append")
+        print(f"  {table_name} done.")
+
 
 if __name__ == "__main__":
-    get_data_dict()
+    write_to_db()
