@@ -1,9 +1,3 @@
--- RAW LANDING LAYER
--- Goal: mirror the source CSVs as-is. NO primary keys / unique / not-null
--- constraints here — the raw data has real-world duplicates, and a failing
--- constraint would abort the whole load. Enforce keys later in a staging layer.
-
-
 CREATE TABLE IF NOT EXISTS raw.OLIST_CUSTOMERS_DATASET (
     customer_id text,
     customer_unique_id text,
@@ -14,7 +8,7 @@ CREATE TABLE IF NOT EXISTS raw.OLIST_CUSTOMERS_DATASET (
 
 CREATE TABLE IF NOT EXISTS raw.OLIST_GEOLOCATION_DATASET (
     geolocation_zip_code_prefix varchar(5),
-    geolocation_lat numeric(8, 6),
+    geolocation_lat numeric(9, 6),
     geolocation_lng numeric(9, 6),
     geolocation_city text,
     geolocation_state char(2)
@@ -77,6 +71,7 @@ CREATE TABLE IF NOT EXISTS raw.OLIST_ORDER_REVIEWS_DATASET (
 );
 
 CREATE TABLE IF NOT EXISTS raw.OLIST_ORDER_PAYMENTS_DATASET (
+    order_id text,
     payment_sequential int,
     payment_type varchar(12),
     payment_installments int,
