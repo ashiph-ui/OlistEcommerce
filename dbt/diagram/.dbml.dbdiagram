@@ -9,61 +9,182 @@
       {
         "name": "OLIST_CUSTOMERS_DATASET",
         "schemaName": "public",
-        "x": 81.20200283799755,
-        "y": -14.362667747808572
+        "x": 197.34703290182057,
+        "y": -199.7995179480427
       },
       {
         "name": "OLIST_GEOLOCATION_DATASET",
         "schemaName": "public",
-        "x": 593.0341253781952,
-        "y": 636.2279998759461
+        "x": 1203.8816220022297,
+        "y": 560.6766922329062
       },
       {
         "name": "OLIST_ORDERS_DATASET",
         "schemaName": "public",
-        "x": 1000.4017038418717,
-        "y": 256.5745353159215
+        "x": 563.0086407011789,
+        "y": -57.21534509948117
       },
       {
         "name": "PRODUCT_CATEGORY_NAME_TRANSLATION",
         "schemaName": "public",
-        "x": 465.26743112523866,
-        "y": -35.78233529290309
+        "x": 169.9541437614484,
+        "y": 354.9991359010949
       },
       {
         "name": "OLIST_SELLERS_DATASET",
         "schemaName": "public",
-        "x": 931.9112959752214,
-        "y": -22.60100141899879
+        "x": 1634.8030350489807,
+        "y": 227.1307114645253
       },
       {
         "name": "OLIST_ORDER_ITEMS_DATASET",
         "schemaName": "public",
-        "x": 496.57309907576143,
-        "y": 294.70434623946494
+        "x": 1247.5350997088183,
+        "y": 118.83189957250721
       },
       {
         "name": "OLIST_PRODUCTS_DATASET",
         "schemaName": "public",
-        "x": -51.049929445225345,
-        "y": 283.8235448229758
+        "x": 603.7271772728351,
+        "y": 511.8256339516023
       },
       {
         "name": "OLIST_ORDER_REVIEWS_DATASET",
         "schemaName": "public",
-        "x": 195.14852391524295,
-        "y": 623.5858945462232
+        "x": 633.3922094360773,
+        "y": -496.3612999135164
       },
       {
         "name": "OLIST_ORDER_PAYMENTS_DATASET",
         "schemaName": "public",
-        "x": 1048.9881134695702,
-        "y": 674.4045606723189
+        "x": 1449.9559699618858,
+        "y": -432.3612999135164
       }
     ],
     "tableGroupCollapseStates": [],
     "stickyNoteLayouts": [],
-    "referencePaths": []
+    "referencePaths": [
+      {
+        "firstFieldNames": [
+          "customer_id"
+        ],
+        "firstTableName": "OLIST_ORDERS_DATASET",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "customer_id"
+        ],
+        "secondTableName": "OLIST_CUSTOMERS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "product_id"
+        ],
+        "firstTableName": "OLIST_PRODUCTS_DATASET",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "order_id"
+        ],
+        "secondTableName": "OLIST_ORDER_ITEMS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "product_id"
+        ],
+        "firstTableName": "OLIST_PRODUCTS_DATASET",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "product_id"
+        ],
+        "secondTableName": "OLIST_ORDER_ITEMS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "seller_id"
+        ],
+        "firstTableName": "OLIST_SELLERS_DATASET",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "seller_id"
+        ],
+        "secondTableName": "OLIST_ORDER_ITEMS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "product_category_name"
+        ],
+        "firstTableName": "PRODUCT_CATEGORY_NAME_TRANSLATION",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "product_category_name"
+        ],
+        "secondTableName": "OLIST_PRODUCTS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "order_id"
+        ],
+        "firstTableName": "OLIST_ORDERS_DATASET",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "order_id"
+        ],
+        "secondTableName": "OLIST_ORDER_PAYMENTS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "order_id"
+        ],
+        "firstTableName": "OLIST_ORDERS_DATASET",
+        "firstSchemaName": "public",
+        "firstRelation": "1",
+        "secondFieldNames": [
+          "order_id"
+        ],
+        "secondTableName": "OLIST_ORDER_ITEMS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "*",
+        "checkPoints": []
+      },
+      {
+        "firstFieldNames": [
+          "order_id"
+        ],
+        "firstTableName": "OLIST_ORDER_REVIEWS_DATASET",
+        "firstSchemaName": "public",
+        "firstRelation": "*",
+        "secondFieldNames": [
+          "order_id"
+        ],
+        "secondTableName": "OLIST_ORDERS_DATASET",
+        "secondSchemaName": "public",
+        "secondRelation": "1",
+        "checkPoints": []
+      }
+    ]
   },
   "views": {}
 }

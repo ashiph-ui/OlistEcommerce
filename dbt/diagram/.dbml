@@ -1,5 +1,5 @@
 TABLE OLIST_CUSTOMERS_DATASET {
-    customer_id text
+    customer_id text [PK]
     customer_unique_id text
     customer_zip_code_prefix varchar(5)
     customer_city text
@@ -10,13 +10,15 @@ TABLE OLIST_GEOLOCATION_DATASET {
     geolocation_zip_code_prefix varchar(5)
     geolocation_lat numeric(9, 6)
     geolocation_lng numeric(9, 6)
+    indexes {(geolocation_lat, geolocation_lng) [pk]}
     geolocation_city text
     geolocation_state char(2)
+    
 }
 
 
 TABLE OLIST_ORDERS_DATASET {
-    order_id text
+    order_id text [PK]
     customer_id text
     order_status varchar(14)
     order_purchase_timestamp timestamp
@@ -27,12 +29,12 @@ TABLE OLIST_ORDERS_DATASET {
 }
 
 TABLE PRODUCT_CATEGORY_NAME_TRANSLATION {
-    product_category_name text
+    product_category_name text [PK]
     product_category_name_english text
 }
 
 TABLE OLIST_SELLERS_DATASET {
-    seller_id text
+    seller_id text [PK]
     seller_zip_code_prefix varchar(5)
     seller_city text
     seller_state char(2)
@@ -40,7 +42,8 @@ TABLE OLIST_SELLERS_DATASET {
 
 TABLE OLIST_ORDER_ITEMS_DATASET {
     order_id text
-    order_item_id int       
+    order_item_id int   
+    indexes {(order_id, order_item_id) [pk]}    
     product_id text
     seller_id text
     shipping_limit_date timestamp
@@ -49,7 +52,7 @@ TABLE OLIST_ORDER_ITEMS_DATASET {
 }
 
 TABLE OLIST_PRODUCTS_DATASET {
-    product_id text
+    product_id text [PK]
     product_category_name text
     product_name_lenght int
     product_description_lenght int
@@ -61,7 +64,7 @@ TABLE OLIST_PRODUCTS_DATASET {
 }
 
 TABLE OLIST_ORDER_REVIEWS_DATASET {
-    review_id text
+    review_id text [PK]
     order_id text
     review_score int
     review_comment_title text
@@ -73,7 +76,22 @@ TABLE OLIST_ORDER_REVIEWS_DATASET {
 TABLE OLIST_ORDER_PAYMENTS_DATASET {
     order_id text
     payment_sequential int
+    indexes {(order_id, payment_sequential) [pk]}
     payment_type varchar(12)
     payment_installments int
     payment_value numeric(10, 2)      
 }
+
+Ref: OLIST_ORDERS_DATASET.customer_id > OLIST_CUSTOMERS_DATASET.customer_id
+
+Ref: OLIST_PRODUCTS_DATASET.product_id < OLIST_ORDER_ITEMS_DATASET.product_id 
+
+Ref: OLIST_SELLERS_DATASET.seller_id < OLIST_ORDER_ITEMS_DATASET.seller_id
+
+Ref: PRODUCT_CATEGORY_NAME_TRANSLATION.product_category_name < OLIST_PRODUCTS_DATASET.product_category_name 
+
+Ref : OLIST_ORDERS_DATASET.order_id < OLIST_ORDER_PAYMENTS_DATASET.order_id
+
+Ref: OLIST_ORDERS_DATASET.order_id < OLIST_ORDER_ITEMS_DATASET.order_id
+
+Ref: OLIST_ORDER_REVIEWS_DATASET.order_id > OLIST_ORDERS_DATASET.order_id
