@@ -1,0 +1,69 @@
+{
+  "version": "2.0.0",
+  "darkMode": true,
+  "gridEnabling": false,
+  "currentViewName": null,
+  "defaultView": {
+    "detailLevel": "All",
+    "tablePositions": [
+      {
+        "name": "OLIST_CUSTOMERS_DATASET",
+        "schemaName": "public",
+        "x": 81.20200283799755,
+        "y": -14.362667747808572
+      },
+      {
+        "name": "OLIST_GEOLOCATION_DATASET",
+        "schemaName": "public",
+        "x": 593.0341253781952,
+        "y": 636.2279998759461
+      },
+      {
+        "name": "OLIST_ORDERS_DATASET",
+        "schemaName": "public",
+        "x": 1000.4017038418717,
+        "y": 256.5745353159215
+      },
+      {
+        "name": "PRODUCT_CATEGORY_NAME_TRANSLATION",
+        "schemaName": "public",
+        "x": 465.26743112523866,
+        "y": -35.78233529290309
+      },
+      {
+        "name": "OLIST_SELLERS_DATASET",
+        "schemaName": "public",
+        "x": 931.9112959752214,
+        "y": -22.60100141899879
+      },
+      {
+        "name": "OLIST_ORDER_ITEMS_DATASET",
+        "schemaName": "public",
+        "x": 496.57309907576143,
+        "y": 294.70434623946494
+      },
+      {
+        "name": "OLIST_PRODUCTS_DATASET",
+        "schemaName": "public",
+        "x": -51.049929445225345,
+        "y": 283.8235448229758
+      },
+      {
+        "name": "OLIST_ORDER_REVIEWS_DATASET",
+        "schemaName": "public",
+        "x": 195.14852391524295,
+        "y": 623.5858945462232
+      },
+      {
+        "name": "OLIST_ORDER_PAYMENTS_DATASET",
+        "schemaName": "public",
+        "x": 1048.9881134695702,
+        "y": 674.4045606723189
+      }
+    ],
+    "tableGroupCollapseStates": [],
+    "stickyNoteLayouts": [],
+    "referencePaths": []
+  },
+  "views": {}
+}
