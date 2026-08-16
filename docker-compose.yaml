@@ -7,7 +7,10 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
       - POSTGRES_DB=${POSTGRES_DB} #optional (specify default database instead of $POSTGRES_DB)
     ports:
-      - "5432:5432"
+      # Host 5433 -> container 5432. Host port 5433 avoids a collision with a
+      # host-native Postgres already bound to 127.0.0.1:5432. Keep POSTGRES_PORT
+      # in .env in sync with the host side of this mapping.
+      - "5433:5432"
 
     volumes:
       # Named volume: data survives `docker compose down` / container restarts.

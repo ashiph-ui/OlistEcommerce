@@ -16,7 +16,6 @@ TABLE OLIST_GEOLOCATION_DATASET {
     
 }
 
-
 TABLE OLIST_ORDERS_DATASET {
     order_id text [PK]
     customer_id text
