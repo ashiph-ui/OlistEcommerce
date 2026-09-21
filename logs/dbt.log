@@ -1,0 +1,138 @@
+[0m13:46:34.663045 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f040ffec2f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f04100d3920>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f040d21ae70>]}
+
+
+============================== 13:46:34.666274 | 7eff6716-e21d-4bde-9ddd-a712fed9668a ==============================
+[0m13:46:34.666274 [info ] [MainThread]: Running with dbt=1.12.5
+[0m13:46:34.666718 [debug] [MainThread]: running dbt with arguments {'warn_error': 'None', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'send_anonymous_usage_stats': 'True', 'target_path': 'None', 'static_parser': 'True', 'printer_width': '80', 'write_json': 'True', 'empty': 'None', 'fail_fast': 'False', 'no_print': 'None', 'profiles_dir': '/home/arai/.dbt', 'log_path': 'logs', 'cache_selected_only': 'False', 'invocation_command': 'dbt init dbt_project', 'use_colors': 'True', 'hints_enabled': 'True', 'quiet': 'False', 'indirect_selection': 'eager', 'partial_parse': 'True', 'maximum_seed_size_mib': '1', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'debug': 'False', 'log_format': 'default', 'version_check': 'True'}
+[0m13:46:34.680987 [info ] [MainThread]: Creating dbt configuration folder at /home/arai/.dbt
+[0m13:46:34.683562 [debug] [MainThread]: Starter project path: /home/arai/PythonProjects/OlistEcommerce/venv/lib/python3.12/site-packages/dbt/include/starter_project
+[0m13:46:34.691868 [info ] [MainThread]: Setting up your profile.
+[0m13:47:50.859062 [info ] [MainThread]: Profile dbt_project written to /home/arai/.dbt/profiles.yml using target's profile_template.yml and your supplied values.
+[0m13:47:50.861446 [info ] [MainThread]: Running dbt debug to validate the project...
+[0m13:47:50.861879 [info ] [MainThread]: dbt version: 1.12.5
+[0m13:47:50.862167 [info ] [MainThread]: python version: 3.12.7
+[0m13:47:50.862471 [info ] [MainThread]: python path: /home/arai/PythonProjects/OlistEcommerce/venv/bin/python3
+[0m13:47:50.862752 [info ] [MainThread]: os info: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39
+[0m13:47:50.882530 [info ] [MainThread]: Using profiles dir at /home/arai/.dbt
+[0m13:47:50.882925 [info ] [MainThread]: Using profiles.yml file at /home/arai/.dbt/profiles.yml
+[0m13:47:50.883209 [info ] [MainThread]: Using dbt_project.yml file at /home/arai/PythonProjects/OlistEcommerce/dbt_project/dbt_project.yml
+[0m13:47:50.883892 [info ] [MainThread]: adapter type: postgres
+[0m13:47:50.884168 [info ] [MainThread]: adapter version: 1.11.0
+[0m13:47:50.964398 [info ] [MainThread]: Configuration:
+[0m13:47:50.964798 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m13:47:50.965085 [info ] [MainThread]:   dbt_project.yml file [[32mOK found and valid[0m]
+[0m13:47:50.965363 [info ] [MainThread]: Required dependencies:
+[0m13:47:50.965658 [debug] [MainThread]: Executing "git --help"
+[0m13:47:50.976400 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m13:47:50.976833 [debug] [MainThread]: STDERR: "b''"
+[0m13:47:50.977089 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m13:47:50.977397 [info ] [MainThread]: Connection:
+[0m13:47:50.977697 [info ] [MainThread]:   host: localhost
+[0m13:47:50.977980 [info ] [MainThread]:   port: 5433
+[0m13:47:50.978252 [info ] [MainThread]:   user: olist_admin
+[0m13:47:50.978545 [info ] [MainThread]:   database: olist
+[0m13:47:50.978814 [info ] [MainThread]:   schema: olist
+[0m13:47:50.979085 [info ] [MainThread]:   connect_timeout: 10
+[0m13:47:50.979367 [info ] [MainThread]:   role: None
+[0m13:47:50.979639 [info ] [MainThread]:   search_path: None
+[0m13:47:50.979909 [info ] [MainThread]:   keepalives_idle: 0
+[0m13:47:50.980178 [info ] [MainThread]:   sslmode: None
+[0m13:47:50.980469 [info ] [MainThread]:   sslcert: None
+[0m13:47:50.980736 [info ] [MainThread]:   sslkey: None
+[0m13:47:50.981004 [info ] [MainThread]:   sslrootcert: None
+[0m13:47:50.981273 [info ] [MainThread]:   application_name: dbt
+[0m13:47:50.981558 [info ] [MainThread]:   autocommit: False
+[0m13:47:50.981838 [info ] [MainThread]:   retries: 1
+[0m13:47:50.982263 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m13:47:51.048500 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m13:47:51.072108 [debug] [MainThread]: Using postgres connection "debug"
+[0m13:47:51.072442 [debug] [MainThread]: On debug: select 1 as id
+[0m13:47:51.072700 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m13:47:51.107262 [debug] [MainThread]: SQL status: SELECT 1 in 0.034 seconds
+[0m13:47:51.108104 [debug] [MainThread]: On debug: Close
+[0m13:47:51.108434 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m13:47:51.108787 [info ] [MainThread]: [32mAll checks passed![0m
+[0m13:47:51.109116 [info ] [MainThread]: Your new dbt project "dbt_project" was created!
+Initialized new project in /home/arai/PythonProjects/OlistEcommerce/dbt_project/dbt_project
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m13:47:51.110867 [debug] [MainThread]: Resource report: {"command_name": "init", "command_success": true, "command_wall_clock_time": 80.096016, "process_in_blocks": "96448", "process_kernel_time": 0.260451, "process_mem_max_rss": "121380", "process_out_blocks": "88", "process_user_time": 1.172033}
+[0m13:47:51.111288 [debug] [MainThread]: Command `dbt init` succeeded at 13:47:51.111207 after 80.10 seconds
+[0m13:47:51.111583 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m13:47:51.111894 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f040db27aa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f040b3bdf40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f040dcbec30>]}
+[0m13:47:51.112224 [debug] [MainThread]: Flushing usage events
+[0m13:47:51.614203 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m14:00:17.556744 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7f61de16a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7f63d4d160>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7f62d11d90>]}
+
+
+============================== 14:00:17.559851 | 4f9147c3-980d-4fd7-97df-332dbc50569c ==============================
+[0m14:00:17.559851 [info ] [MainThread]: Running with dbt=1.12.5
+[0m14:00:17.560302 [debug] [MainThread]: running dbt with arguments {'debug': 'False', 'write_json': 'True', 'profiles_dir': '/home/arai/.dbt', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'quiet': 'False', 'empty': 'None', 'log_cache_events': 'False', 'log_path': 'logs', 'log_format': 'default', 'static_parser': 'True', 'printer_width': '80', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'maximum_seed_size_mib': '1', 'no_print': 'None', 'use_colors': 'True', 'fail_fast': 'False', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'warn_error': 'None', 'version_check': 'True', 'hints_enabled': 'True', 'introspect': 'True', 'invocation_command': 'dbt debug'}
+[0m14:00:17.574115 [info ] [MainThread]: dbt version: 1.12.5
+[0m14:00:17.574511 [info ] [MainThread]: python version: 3.12.7
+[0m14:00:17.574800 [info ] [MainThread]: python path: /home/arai/PythonProjects/OlistEcommerce/venv/bin/python3
+[0m14:00:17.575085 [info ] [MainThread]: os info: Linux-5.15.167.4-microsoft-standard-WSL2-x86_64-with-glibc2.39
+[0m14:00:17.620898 [info ] [MainThread]: Using profiles dir at /home/arai/.dbt
+[0m14:00:17.621288 [info ] [MainThread]: Using profiles.yml file at /home/arai/.dbt/profiles.yml
+[0m14:00:17.621583 [info ] [MainThread]: Using dbt_project.yml file at /home/arai/PythonProjects/OlistEcommerce/dbt_project.yml
+[0m14:00:17.621979 [info ] [MainThread]: adapter type: postgres
+[0m14:00:17.622258 [info ] [MainThread]: adapter version: 1.11.0
+[0m14:00:17.622571 [info ] [MainThread]: Configuration:
+[0m14:00:17.622874 [info ] [MainThread]:   profiles.yml file [[32mOK found and valid[0m]
+[0m14:00:17.623155 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m14:00:17.623431 [info ] [MainThread]: Required dependencies:
+[0m14:00:17.623743 [debug] [MainThread]: Executing "git --help"
+[0m14:00:17.625413 [debug] [MainThread]: STDOUT: "b"usage: git [-v | --version] [-h | --help] [-C <path>] [-c <name>=<value>]\n           [--exec-path[=<path>]] [--html-path] [--man-path] [--info-path]\n           [-p | --paginate | -P | --no-pager] [--no-replace-objects] [--bare]\n           [--git-dir=<path>] [--work-tree=<path>] [--namespace=<name>]\n           [--config-env=<name>=<envvar>] <command> [<args>]\n\nThese are common Git commands used in various situations:\n\nstart a working area (see also: git help tutorial)\n   clone     Clone a repository into a new directory\n   init      Create an empty Git repository or reinitialize an existing one\n\nwork on the current change (see also: git help everyday)\n   add       Add file contents to the index\n   mv        Move or rename a file, a directory, or a symlink\n   restore   Restore working tree files\n   rm        Remove files from the working tree and from the index\n\nexamine the history and state (see also: git help revisions)\n   bisect    Use binary search to find the commit that introduced a bug\n   diff      Show changes between commits, commit and working tree, etc\n   grep      Print lines matching a pattern\n   log       Show commit logs\n   show      Show various types of objects\n   status    Show the working tree status\n\ngrow, mark and tweak your common history\n   branch    List, create, or delete branches\n   commit    Record changes to the repository\n   merge     Join two or more development histories together\n   rebase    Reapply commits on top of another base tip\n   reset     Reset current HEAD to the specified state\n   switch    Switch branches\n   tag       Create, list, delete or verify a tag object signed with GPG\n\ncollaborate (see also: git help workflows)\n   fetch     Download objects and refs from another repository\n   pull      Fetch from and integrate with another repository or a local branch\n   push      Update remote refs along with associated objects\n\n'git help -a' and 'git help -g' list available subcommands and some\nconcept guides. See 'git help <command>' or 'git help <concept>'\nto read about a specific subcommand or concept.\nSee 'git help git' for an overview of the system.\n""
+[0m14:00:17.625832 [debug] [MainThread]: STDERR: "b''"
+[0m14:00:17.626084 [info ] [MainThread]:  - git [[32mOK found[0m]
+
+[0m14:00:17.626373 [info ] [MainThread]: Connection:
+[0m14:00:17.626669 [info ] [MainThread]:   host: localhost
+[0m14:00:17.626972 [info ] [MainThread]:   port: 5433
+[0m14:00:17.627248 [info ] [MainThread]:   user: olist_admin
+[0m14:00:17.627519 [info ] [MainThread]:   database: olist
+[0m14:00:17.627819 [info ] [MainThread]:   schema: olist
+[0m14:00:17.628120 [info ] [MainThread]:   connect_timeout: 10
+[0m14:00:17.628395 [info ] [MainThread]:   role: None
+[0m14:00:17.628668 [info ] [MainThread]:   search_path: None
+[0m14:00:17.628955 [info ] [MainThread]:   keepalives_idle: 0
+[0m14:00:17.629225 [info ] [MainThread]:   sslmode: None
+[0m14:00:17.629536 [info ] [MainThread]:   sslcert: None
+[0m14:00:17.629819 [info ] [MainThread]:   sslkey: None
+[0m14:00:17.630156 [info ] [MainThread]:   sslrootcert: None
+[0m14:00:17.630434 [info ] [MainThread]:   application_name: dbt
+[0m14:00:17.630711 [info ] [MainThread]:   autocommit: False
+[0m14:00:17.631033 [info ] [MainThread]:   retries: 1
+[0m14:00:17.631438 [info ] [MainThread]: Registered adapter: postgres=1.11.0
+[0m14:00:17.692264 [debug] [MainThread]: Acquiring new postgres connection 'debug'
+[0m14:00:17.710872 [debug] [MainThread]: Using postgres connection "debug"
+[0m14:00:17.711344 [debug] [MainThread]: On debug: select 1 as id
+[0m14:00:17.711612 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m14:00:17.720524 [debug] [MainThread]: SQL status: SELECT 1 in 0.009 seconds
+[0m14:00:17.721280 [debug] [MainThread]: On debug: Close
+[0m14:00:17.721595 [info ] [MainThread]:   Connection test: [[32mOK connection ok[0m]
+
+[0m14:00:17.721903 [info ] [MainThread]: [31m1 check failed:[0m
+[0m14:00:17.722184 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </home/arai/PythonProjects/OlistEcommerce/dbt_project.yml> not found
+
+[0m14:00:17.722903 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.22382058, "process_in_blocks": "58880", "process_kernel_time": 0.194097, "process_mem_max_rss": "119168", "process_out_blocks": "24", "process_user_time": 1.154369}
+[0m14:00:17.723285 [debug] [MainThread]: Command `dbt debug` failed at 14:00:17.723206 after 0.22 seconds
+[0m14:00:17.723565 [debug] [MainThread]: Connection 'debug' was properly closed.
+[0m14:00:17.723908 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7f62db85f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7f61eb7080>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x7f7f6658afc0>]}
+[0m14:00:17.724234 [debug] [MainThread]: Flushing usage events
+[0m14:00:18.234904 [debug] [MainThread]: An error was encountered while trying to flush usage events

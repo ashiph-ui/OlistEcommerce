@@ -9,7 +9,7 @@ renamed as (
         order_id,
         order_item_id,
         product_id,
-        seller_id
+        seller_id,
 
         -- attributes
         price,
