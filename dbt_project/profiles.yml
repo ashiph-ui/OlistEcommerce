@@ -1,0 +1,12 @@
+olist:
+  target: dev
+  outputs: 
+    dev:
+      type: postgres
+      host: localhost
+      port: 5433
+      user: olist_admin
+      password: "{{ env_var('POSTGRES_PASSWORD') }}"
+      dbname: olist
+      schema: analytics        # where dbt WRITES
+      threads: 4

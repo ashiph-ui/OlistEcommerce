@@ -1,0 +1,17 @@
+sources:
+  - name: olist
+    description: Raw olist dataset loaded from Kaggle. This is the untouched data.
+    database: olist
+    schema: raw
+    tables:
+      - name: olist_orders_dataset
+        description: One row per order. The core fact source.
+      - name: olist_order_items_dataset
+        description: One row per item within an order. Order-item grain.
+      - name: olist_order_payments_dataset
+      - name: olist_order_reviews_dataset
+      - name: olist_customers_dataset
+      - name: olist_products_dataset
+      - name: olist_sellers_dataset
+      - name: olist_geolocation_dataset
+      - name: product_category_name_translation
