@@ -65,6 +65,7 @@ TABLE OLIST_PRODUCTS_DATASET {
 TABLE OLIST_ORDER_REVIEWS_DATASET {
     review_id text [PK]
     order_id text
+    indexes {(review_id, order_id) [pk]}
     review_score int
     review_comment_title text
     review_comment_message text
