@@ -167,12 +167,21 @@ models:
         description: identifier for which the specific product
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref("stg_olist__products")
+                field: product_id
+          
 
       - name: seller_id
         description: identifier for the seller of the order
         data_tests:
           - not_null
-      
+          - relationships:
+              arguments:
+                to: ref("stg_olist__sellers")
+                field: seller_id
+
       - name: price
         description: price of the item sold
         data_tests:
@@ -191,7 +200,92 @@ models:
                 min_value: 0
                 inclusive: true
 
- 
+
+  - name: stg_olist__sellers
+    description: identifies all sellers and details their location
+    data_tests:
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: source("olist", "olist_sellers_dataset")
+
+    columns:
+      - name: seller_id
+        description: all unique sellers for olist
+        data_test:
+          - not_null
+          - unique
+
+  
+  - name: stg_olist__geolocation
+    description: identifies all sellers and details their location
+    data_tests:
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: source("olist", "olist_geolocation_dataset")
+
+
+  - name: stg_olist__products
+    description: each row describes a unique product within the inventory
+                  610 products have no descriptive metadata (category, name length,
+                  description length, photo count all null together); these fail as 
+                  a block, suggesting listings that were never completed
+    data_tests:
+      - dbt_utils.equal_rowcount:
+          arguments: 
+            compare_model: source("olist", "olist_products_dataset")
     
+    columns:
+      - name: product_id
+        description: unique product_id
+        data_tests:
+          - not_null
+          - unique
+          
+      - name: product_category 
+        description:  >
+          Portuguese category name from the source. Two categories
+          (pc_gamer and portateis_cozinha_e_preparadores_de_alimentos,
+          13 products total) have no row in the translation table, so
+          the relationships test runs at warn severity. English names
+          fall back to the Portuguese value downstream.
+
+        data_tests:
+          - relationships:
+              config:
+                severity: warn
+              arguments: 
+                to: ref("stg_olist__category")
+                field: product_category
+
+      - name: product_weight_g
+        description: weight of product in grams 
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+
+      
+      - name: product_length
+        description: length of product in cm 
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      
+      - name: product_height_cm
+        description: height of product in cm 
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+
+      - name: product_width_cm
+        description: width of product in cm
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+  
+  
       
         
