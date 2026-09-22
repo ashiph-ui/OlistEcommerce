@@ -1,0 +1,117 @@
+version: 2
+
+models:
+  - name: stg_olist__orders
+    description: One row per order. The core fact source.
+    data_tests:              
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: source('olist', 'olist_orders_dataset')
+
+    columns:
+      - name: order_id
+        description: Unique identifier, one unique order_id per row
+        data_tests: 
+          - not_null
+          - unique
+      
+      - name: order_status
+        description: 8 distinct options for order status.
+        data_tests:                 
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['approved','canceled', 'created', 'delivered', 'invoiced', 'processing', 'shipped', 'unavailable']
+
+      - name: customer_id
+        description: generated every order
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_olist__customers')
+                field: customer_id
+
+  - name: stg_olist__customers
+    description: one row per customer_id, which Olist generates per order, so effectively one row per order.
+    data_tests:
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: source("olist", "olist_customers_dataset")
+      
+    columns:
+      - name: customer_id
+        description: id generated every order
+        data_tests:
+          - not_null
+          - unique
+          - relationships:
+              arguments:
+                to: ref('stg_olist__orders')
+                field: customer_id
+    
+      - name: customer_unique_id
+        description: identifies the real person; repeats across rows when someone places multiple orders.
+        data_tests:
+          - not_null
+          
+  - name: stg_olist__reviews
+    description: reviews for orders, can be done for the same order.
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - review_id
+              - order_id
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: source("olist", "olist_order_reviews_dataset")
+
+    columns:
+      - name: review_id
+        description: A generated id for each review.
+        data_tests:
+          - not_null
+          
+      
+      - name: order_id
+        description: identifier for which order the reviews are being made for. Can reoccur.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref("stg_olist__orders")
+                field: order_id
+      
+      - name: review_score
+        description: scoring the order from 1-5.
+        data_tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: [1, 2, 3, 4, 5]
+                quote: false
+
+
+  - name: stg_olist__payments
+    description: each row represents a payment and its installment sequence (when they are not paying all of the expenses in one go) 
+    data_tests:
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: source("olist", "olist_order_payments_dataset")
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - order_id
+              - payment_sequential
+    
+    # columns: 
+    #   - name: order_id
+    #     description: instances of orders for payments
+    #     data_tests:
+    #       - not_null
+
+ 
+    
+      
+        
