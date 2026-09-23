@@ -123,7 +123,7 @@ models:
                 min_value: 0
                 inclusive: true
       - name: payment_installments
-        desciption: number of monthly instalments the customer chose to split that payment into.
+        description: number of monthly instalments the customer chose to split that payment into.
         data_tests:
           - dbt_utils.accepted_range:
               arguments:
@@ -131,7 +131,7 @@ models:
                 inclusive: true
         
       - name: payment_value
-        desciption: the raw value of the payment
+        description: the raw value of the payment
         data_tests:
           - dbt_utils.accepted_range:
               arguments:
