@@ -4,8 +4,8 @@ WITH source as(
 
 renamed as (
     select
-        product_category_name,
-        product_category_name_english
+        product_category_name           as product_category,
+        product_category_name_english   as product_category_english
     
     from source
 )
