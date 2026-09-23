@@ -112,11 +112,11 @@ models:
           - not_null
           - relationships:
               arguments:
-                to: ref("stg_olist_orders")
+                to: ref("stg_olist__orders")
                 field: order_id
         
       - name: payment_sequential
-        desciption: which payment method this is, when an order was paid with more than one.
+        description: which payment method this is, when an order was paid with more than one.
         data_tests:
           - dbt_utils.accepted_range:
               arguments:
@@ -211,7 +211,7 @@ models:
     columns:
       - name: seller_id
         description: all unique sellers for olist
-        data_test:
+        data_tests:
           - not_null
           - unique
 
@@ -265,7 +265,7 @@ models:
                 severity: warn
 
       
-      - name: product_length
+      - name: product_length_cm
         description: length of product in cm 
         data_tests:
           - not_null:
@@ -285,6 +285,21 @@ models:
           - not_null:
               config:
                 severity: warn
+
+  - name: stg_olist__category
+    description: all categories with translations
+    data_tests:
+      - dbt_utils.equal_rowcount:
+          arguments:
+            compare_model: source("olist", "product_category_name_translation")
+
+    columns:
+      - name: product_category
+        description: unique category for products
+        data_tests:
+          - not_null
+          - unique
+
   
   
       
